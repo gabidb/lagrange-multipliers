@@ -63,13 +63,19 @@
 \end{theorem}
 
 \begin{theorem}(Method of Lagrange Multipliers) \\
-    Suppose that $f:\mathbb{R}^{n}\to \mathbb{R}$ and $g:U\subset\mathbb{R}^{n}\to \mathbb{R}$ are $C^{1}$. Let $\pmb{x}_{0}\in U$ and $g(\pmb{x}_{0})=c$, and let $S$ be the level set for $g$ with value $c$ (i.e these are the set of points $\pmb{x}\in \mathbb{R}^{n}$ that satisfy $g(\pmb{x})=c$).
+    Suppose that $f:U\subset\mathbb{R}^{n}\to \mathbb{R}$ and $g:U\subset\mathbb{R}^{n}\to \mathbb{R}$ are $C^{1}$. Let $\pmb{x}_{0}\in U$ and $g(\pmb{x}_{0})=c$, and let $S$ be the level set for $g$ with value $c$ (i.e these are the set of points $\pmb{x}\in \mathbb{R}^{n}$ that satisfy $g(\pmb{x})=c$).
     Assume $\nabla g(\pmb{x}_{0})\neq \pmb{0}$. \\
-    If $(\pmb{x}_{0})$ is a local extremum, then there exists $\lambda$ such that
+    If $f$ achieves a local extremum at $\pmb{x}_{0}$, then there exists $\lambda$ such that
     $$
         \nabla f(\pmb{x}_{0}) = \lambda \nabla g(\pmb{x}_{0})
     $$
 \end{theorem}
+
+\begin{proof}
+    For the sake of simplicity, take n=3. Then we are dealing with a level surface of the function $g(x,y,x)=c$ though the point $({x}_0,{y}_0,{z}_0)$.
+    By the Implicit Function Theorem we know that there is a function $z=\phi(x,y)$
+
+\end{proof}
 
 \subsection{Single Constraint}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
