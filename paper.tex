@@ -196,7 +196,10 @@ Solving the second equation gives us $a=0$ and $9b^2-a^2=0$. $a=0$ is not in out
 Now, we solve the third equation for $a$ and obtain $a=\pm 3\sqrt{2}$.\\
 For $a=\pm 3\sqrt{2}$ and $b=\pm \frac{a}{3}$ we get the following choices of $(a,b)$: $(3\sqrt{2}, \sqrt{2}),\\
 (3\sqrt{2}, -\sqrt{2}), (-3\sqrt{2}, \sqrt{2}), (-3\sqrt{2}, -\sqrt{2})$.
-Since we are interested in $a,b>0$ the only choice is $(3\sqrt{2}, \sqrt{2})$. 
+Since we are interested in $a,b>0$ the only choice is $(3\sqrt{2}, \sqrt{2})$.
+The method of Lagrange Multipliers guarantees that the result we obtain is an extremum but does not tell us
+whether it is a minima or maxima. To find out, we pick another (a,b) that satisfies the constraint, for example $(\sqrt{\frac{27}{2}},\sqrt{3})$. Since for this choice of (a,b) we get a bigger area, then we conclude that, indeed, for $(3\sqrt{2}, \sqrt{2})$
+we achieve the smallest area considering the constraint.
 
 \begin{figure}[h]
     \centering
@@ -207,6 +210,42 @@ Since we are interested in $a,b>0$ the only choice is $(3\sqrt{2}, \sqrt{2})$.
 
 \subsection{Multiple Constraints}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+If we have $n$ number of constraints, then the method of Lagrangian Multiplers tells us that if there is an extremum at point $P$ on $S$, then there exist $\lambda_1,\lambda_2,...,\lambda_n$ such that
+$$
+    \nabla f(x,y,z) = \lambda_1 \nabla g_1(x,y,z) + \lambda_2 \nabla g_2(x,y,z) + ... + \lambda_n \nabla g_n(x,y,z)
+$$
+
+\begin{example}
+    Find the minimum distance from the origin to the line of intersection of the two planes $x+y+z=8$ and $2x-y+3z=28$ 
+\end{example}
+
+We will again use the squared distance formula, so we set $f(x,y,x)=x^2+y^2+z^2$. We write the two constraints in the form $g(x,y,z)=x+y+z-8$ and $h(x,y,z)=2x-y+3z-28$. Then we have
+$$
+    \nabla f(x,y,z) = \lambda_1 \nabla g(x,y,z) + \lambda_2 \nabla h(x,y,z)
+$$
+$$
+    <2x,2y,2z> = \lambda_1<1,1,1> + \lambda_2<2,-1,3>
+$$
+To find the point on the line closest to the origin we need to solve the system
+
+\begin{equation*}
+    \left\{
+    \begin{alignedat}{3}
+    % R & L   &  R & L   &  R & L 
+        2x= & \lambda_1 + 2\lambda_2 \\
+        2y= &  \lambda_1 - \lambda_2 \\
+        2z= &  \lambda_1 + 3\lambda_2 \\
+        x+y & +z=8 \\
+        2x - & y +3z = 28
+    \end{alignedat}
+    \right.
+\end{equation*}
+
+From the first three equations we get $x=\frac{\lambda_1 + 2\lambda_2}{2}$, $y=\frac{\lambda_1 - \lambda_2}{2}$ and $z=\frac{\lambda_1 + 3\lambda_2}{2}$.
+After substituing in the 4th and 5th equation we get $\lambda_1=0$ and $\lambda_2=4$. After substituting back for $x,y,z$ we get the point $(4,-2,6)$. 
+Thus, the distance from $(4,-2,6)$ to the origin is $\sqrt{56}$. We know that the point we got is closest to the origin because $max(\sqrt{x^2+y^2+z^2}) \to \infty$.
+
+
 
 \subsection{Second Derivative Test}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -214,7 +253,78 @@ Since we are interested in $a,b>0$ the only choice is $(3\sqrt{2}, \sqrt{2})$.
 \subsection{Lagrangian}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+The idea behind the Lagnagian is to reduce constrained optimization to unconstrained optimization, and to take the (functional) constraints into
+account by augmenting the objective function with a weighted sum of them. If we have a function $f(x)$ and a constraint $g(x) = x$ the Lagrangian is defined as 
+$$
+    L(x,\lambda) = f(x) - \lambda(g(x) - c)
+$$
+
 \section{Applications}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Utility Maximization}
+
+Lagrange Multipliers are widely used in microeconomic theory to find the optimal consumption of production bundles under a certain constraint. Even though the examples are trivial, we see how basic understanding of Lagrange Multipliers can help solving Economics problems for optimization.
+
+Let us take a utility function that will represent a utility for consuming a bundle of goods where $x_1$ and $x_2$ are some goods.$$u=u(x_1,x_2)$$ 
+
+The budget of the agent is limited, so we need to introduce a budget constraint. Where $x_1$, $x_2$ are goods and $p_1$, $p_2$ is their price    $$p_1x_1+p_2x_2=B$$
+
+Now, we need to find an optimum point of consumption that lies on the edge of the intersection between budget and utility. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.60\textwidth]{indifference_curve.png}
+\end{figure}
+
+Here we introduce a Lagrangian multiplier to find a point where gradients are parallel. \\
+
+ Maximize 
+ $$L=U(x_1,x_2)+\lambda[B-p_1x_1-p_2x_2]$$
+
+FOC:
+   
+  \begin{equation}
+\frac{\partial L}{\partial x_1}=0 \implies \frac{\partial U}{\partial x_1}-\lambda p_1=0 \implies \frac{\partial U}{\partial x_1}=\lambda p_1
+\end{equation}
+
+  \begin{equation}
+\frac{\partial L}{\partial x_2}=0 \implies \frac{\partial U}{\partial x_2}-\lambda p_2=0 \implies \frac{\partial U}{\partial x_2}=\lambda p_2
+\end{equation}
+
+\begin{equation}
+\frac{\partial L}{\partial \lambda}=0 \implies B=p_1 x_1-p_2 x_2
+\end{equation}
+
+In Economics, a corresponding change in utility U over an increase in $x_i$ is called marginal utility $MU_i$. Now, finishing calculations, we see 
+\begin{equation}
+\frac{\frac{\partial U}{\partial x_1}}{\frac{\partial U}{\partial x_2}}=\frac{p_1}{p_2} \implies \frac{MU_1}{p_1}=\frac{MU_2}{p_2} \implies \frac{MU_1}{MU_2}=\frac{p_1}{p_2}
+\end{equation}
+
+And we can see that it is exactly the point where the constraint touches the curve.
+
+\subsection{Cost Minimization}
+
+The next example is similar, but now we view the production decision of a firm that minimizes its costs. A firm fixes its output level, making it a constraint, and chooses a budget at which to produce. 
+
+$$L=w_1x_1+w_2x_2+\lambda[y-f(x,y)]$$
+
+FOC:
+\begin{equation}
+w_1-\lambda \frac{\partial f}{\partial x_1}=0 
+\end{equation}
+
+\begin{equation}
+w_2-\lambda \frac{\partial f}{\partial x_2}=0 
+\end{equation}
+
+\begin{equation}
+\frac{w_1}{w_2}= \frac{\frac{\partial f}{\partial x_1}}{\frac{\partial f}{\partial x_2}}
+\end{equation}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.60\textwidth]{cost_minimization.png}
+\end{figure}
 
 \end{document}
