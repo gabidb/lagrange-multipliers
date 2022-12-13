@@ -162,20 +162,20 @@ We know that at this points on $f$ we will be closest to the origin because any 
 
 The function we are striving to minimize is the area of an ellipse function $A=\pi ab$ that is subject to the constraint
 $\frac{9}{a^2} + \frac{1}{b^2} = 1$. We need $a,b>0$. We will denote the function we want to minimize $f(a,b)=\pi ab$
-and the constraint $g(a,b)=\frac{9}{a^2} + \frac{1}{b^2}-1$. For $f$ and $g$ $C^1$, for the critical points the method of Lagrange Multipliers gives us
+and the constraint $g(a,b)=\frac{9}{a^2} + \frac{1}{b^2}-1$. For $f$ and $g$ $C^1$, if $(a_0,b_0)$ is an extremum, then there exists $\lambda$ such that
 $$    
-    \nabla f(x,y,z) = \lambda \nabla g(x,y,z)
+    \nabla f(a_0,b_0) = \lambda \nabla g(a_0,b_0)
 $$
 $$
-    <\pi a, \pi b> = \lambda <-18a^{-3}, -2b^{-3}>
+    <\pi a_0, \pi b_0> = \lambda <-18a_0^{-3}, -2b_0^{-3}>
 $$
 \begin{equation*}
     \left\{
     \begin{alignedat}{3}
     % R & L   &  R & L   &  R & L 
-        \pi b= &\lambda(-18)a^{-3} \\
-        \pi a= &\lambda (-2)b^{-3} \\
-        \frac{9}{a^2} +& \frac{1}{b^2} = 1
+        \pi b_0= &\lambda(-18)a_0^{-3} \\
+        \pi a_0= &\lambda (-2)b_0^{-3} \\
+        \frac{9}{a_0^2} +& \frac{1}{b_0^2} = 1
     \end{alignedat}
     \right.
 \end{equation*}
@@ -185,25 +185,25 @@ Solving for $\lambda$ in the first equation and substituting in the second we ge
     \left\{
     \begin{alignedat}{3}
     % R & L   &  R & L   &  R & L 
-        \lambda= &\frac{\pi ba^{3}}{-18} \\
-        a= & \frac{a^3}{9b^2} \\
-        \frac{9}{a^2} +& \frac{1}{b^2} = 1
+        \lambda= &\frac{\pi b_0a_0^{3}}{-18} \\
+        a_0= & \frac{a_0^3}{9b_0^2} \\
+        \frac{9}{a_0^2} +& \frac{1}{b_0^2} = 1
     \end{alignedat}
     \right.
 \end{equation*}
 
-Solving the second equation gives us $a=0$ and $9b^2-a^2=0$. $a=0$ is not in out domain. Solving for $b$ gives us $b=\pm \frac{a}{3}$.
-Now, we solve the third equation for $a$ and obtain $a=\pm 3\sqrt{2}$.\\
-For $a=\pm 3\sqrt{2}$ and $b=\pm \frac{a}{3}$ we get the following choices of $(a,b)$: $(3\sqrt{2}, \sqrt{2}),\\
+Solving the second equation gives us $a_0=0$ and $9b_0^2-a_0^2=0$. $a_0=0$ is not in our domain. Solving for $b_0$ gives us $b_0=\pm \frac{a_0}{3}$.
+Now, we solve the third equation for $a_0$ and obtain $a_0=\pm 3\sqrt{2}$.\\
+For $a_0=\pm 3\sqrt{2}$ and $b_0=\pm \frac{a_0}{3}$ we get the following choices of $(a_0,b_0)$: $(3\sqrt{2}, \sqrt{2}),\\
 (3\sqrt{2}, -\sqrt{2}), (-3\sqrt{2}, \sqrt{2}), (-3\sqrt{2}, -\sqrt{2})$.
 Since we are interested in $a,b>0$ the only choice is $(3\sqrt{2}, \sqrt{2})$.
 The method of Lagrange Multipliers guarantees that the result we obtain is an extremum but does not tell us
-whether it is a minima or maxima. To find out, we pick another (a,b) that satisfies the constraint, for example $(\sqrt{\frac{27}{2}},\sqrt{3})$. Since for this choice of (a,b) we get a bigger area, then we conclude that, indeed, for $(3\sqrt{2}, \sqrt{2})$
+whether it is a minima or maxima. To find out, we pick another $(a_1,b_1)$ that satisfies the constraint, for example $(\sqrt{\frac{27}{2}},\sqrt{3})$. Since for $(a_1,b_1)$ we get a bigger area, then we conclude that, indeed, for $(3\sqrt{2}, \sqrt{2})$
 we achieve the smallest area considering the constraint.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.50\textwidth]{example2.png}
+    \includegraphics[width=0.50\textwidth]{ex2.jpg}
 \end{figure}
 
 
