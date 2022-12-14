@@ -39,6 +39,7 @@
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.50\textwidth]{abstract_img.png}
+    \caption{Lagrange multiplier. \href{https://en.wikipedia.org/wiki/Lagrange_multiplier}{Wikipedia}}
 \end{figure}
 
 
@@ -203,9 +204,10 @@ we achieve the smallest area considering the constraint.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.50\textwidth]{ex2.jpg}
+    \includegraphics[width=0.50\textwidth]{example2.png}
+    \caption{Constraint curve $g(a,b)$ with contour plot of the surface $\pi ab$}
+    \label{fig:Level_curves}
 \end{figure}
-
 
 
 \subsection{Multiple Constraints}
@@ -284,23 +286,19 @@ Here we introduce a Lagrangian multiplier to find a point where gradients are pa
 
 FOC:
    
-  \begin{equation}
+$$
 \frac{\partial L}{\partial x_1}=0 \implies \frac{\partial U}{\partial x_1}-\lambda p_1=0 \implies \frac{\partial U}{\partial x_1}=\lambda p_1
-\end{equation}
-
-  \begin{equation}
+$$
+$$
 \frac{\partial L}{\partial x_2}=0 \implies \frac{\partial U}{\partial x_2}-\lambda p_2=0 \implies \frac{\partial U}{\partial x_2}=\lambda p_2
-\end{equation}
-
-\begin{equation}
+$$
+$$
 \frac{\partial L}{\partial \lambda}=0 \implies B=p_1 x_1-p_2 x_2
-\end{equation}
-
+$$
 In Economics, a corresponding change in utility U over an increase in $x_i$ is called marginal utility $MU_i$. Now, finishing calculations, we see 
-\begin{equation}
+$$
 \frac{\frac{\partial U}{\partial x_1}}{\frac{\partial U}{\partial x_2}}=\frac{p_1}{p_2} \implies \frac{MU_1}{p_1}=\frac{MU_2}{p_2} \implies \frac{MU_1}{MU_2}=\frac{p_1}{p_2}
-\end{equation}
-
+$$
 And we can see that it is exactly the point where the constraint touches the curve.
 
 \subsection{Cost Minimization}
@@ -310,21 +308,28 @@ The next example is similar, but now we view the production decision of a firm t
 $$L=w_1x_1+w_2x_2+\lambda[y-f(x,y)]$$
 
 FOC:
-\begin{equation}
+$$
 w_1-\lambda \frac{\partial f}{\partial x_1}=0 
-\end{equation}
-
-\begin{equation}
+$$
+$$
 w_2-\lambda \frac{\partial f}{\partial x_2}=0 
-\end{equation}
-
-\begin{equation}
+$$
+$$
 \frac{w_1}{w_2}= \frac{\frac{\partial f}{\partial x_1}}{\frac{\partial f}{\partial x_2}}
-\end{equation}
-
+$$
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.60\textwidth]{cost_minimization.png}
 \end{figure}
+
+
+
+\begin{thebibliography}{9}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibitem{Textbook}
+{\sc J.E. Marsden and A.J. Tromba.} Vector Calculus: 5th Edition. W.H.Freeman and Company, 2003.
+\bibitem{Textbook}
+{\sc J. Stewart.} Calculus: 7th edition. Brooks/Cole, 2012.
+\end{thebibliography}
 
 \end{document}
